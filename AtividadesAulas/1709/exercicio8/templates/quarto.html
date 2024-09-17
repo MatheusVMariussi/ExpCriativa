@@ -6,7 +6,7 @@
         <h1>Items do quarto</h1>
         <ul>
             {% for key, value in itensDaCasa.items() %} 
-            <li>{{ key }} : {{ value }}</li>
+            <li>{{ key }} : <a href="{{ value }}">{{ value }}</a></li>
             {% endfor %}
         </ul>
         <p>Voltar para <a href="/">página inicial</a>!

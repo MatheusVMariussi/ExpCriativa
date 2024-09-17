@@ -8,7 +8,7 @@ def index():
 
 @app.route('/quarto')
 def quarto():
-    itensDaCasa = {'Sensor de Luminosidade':'/quarto', 'Interruptor':'/quarto'}
+    itensDaCasa = {'Sensor de Luminosidade':'/quarto', 'Interruptor':'/sala'}
     return render_template("quarto.html", itensDaCasa=itensDaCasa)
 
 @app.route('/banheiro')
@@ -16,6 +16,9 @@ def banheiro():
     itensDaCasa = {'Sensor de Umidade':'/banheiro', 'Lâmpada Inteligente':'/banheiro'}
     return render_template("banheiro.html", itensDaCasa=itensDaCasa)
 
+@app.route('/sala')
+def sala():
+    return render_template("sala.html")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)

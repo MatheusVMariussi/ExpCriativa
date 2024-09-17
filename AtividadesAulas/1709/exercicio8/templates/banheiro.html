@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Meu Banheiro</title>
+    </head>
+    <body>
+        <h1>Items do Banheiro</h1>
+        <ul>
+            {% for key, value in itensDaCasa.items() %} 
+            <li>{{ key }} : {{ value }}</li>
+            {% endfor %}
+        </ul>
+        <p>Voltar para <a href="/">página inicial</a>!
+</p>
+    </body>
+</html>

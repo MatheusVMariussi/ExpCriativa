@@ -1,0 +1,16 @@
+<!--actuators.html -->
+{% extends "base1.html" %}
+{% block content%}
+<h1>Atuadores</h1>
+<ul>
+    {% for key, value in actuators.items() %}
+                <li>{{key}}:{{value}}</li>
+                {% if(value == 1) %}
+                    <li>Ligado</li>
+                {% else %}
+                    <li>Desligado</li>
+                {% endif %}
+                <br>
+            {% endfor %}
+</ul>
+{% endblock%}

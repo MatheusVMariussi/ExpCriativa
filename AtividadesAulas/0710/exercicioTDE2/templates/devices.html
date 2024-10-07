@@ -1,0 +1,63 @@
+<!-- devices.html -->
+{% extends "base.html" %}
+{% block content %}
+<h1>Dispositivos</h1>
+
+<!-- Lista de Sensores -->
+<h2>Sensores</h2>
+<ul> 
+    {% for key, value in sensors.items() %}
+        <li>{{ key }} : {{ value }}</li>
+    {% endfor %}
+</ul>
+
+<!-- Formulário para Adicionar Sensor -->
+<h3>Cadastrar Sensor</h3>
+<form action="/add_sensor" method="post">
+    <p>Nome:</p>
+    <p><input type="text" name="key" placeholder="Key" required/></p>
+    <p>Valor:</p>
+    <p><input type="text" name="value" placeholder="Value" required/></p>
+    <p><input type="submit" value="Cadastrar" /></p>
+</form>
+
+<!-- Formulário para Remover Sensor -->
+<h3>Remover Sensor</h3>
+<form action="/del_sensor" method="post">
+    <p>Nome:</p>
+    <p><input type="text" name="key" placeholder="Key" required/></p>
+    <p>Valor:</p>
+    <p><input type="text" name="value" placeholder="Value" required/></p>
+    <p><input type="submit" value="Remover" /></p>
+</form>
+
+<!-- Lista de Atuadores -->
+<h2>Atuadores</h2>
+<ul>
+    {% for key, value in actuators.items() %}
+        <li>{{ key }} : {{ value }}</li>
+    {% endfor %}
+</ul>
+
+<!-- Formulário para Adicionar Atuador -->
+<h3>Cadastrar Atuador</h3>
+<form action="/add_actuators" method="post">
+    <p>Nome:</p>
+    <p><input type="text" name="key" placeholder="Key" required/></p>
+    <p>Valor:</p>
+    <p><input type="text" name="value" placeholder="Value" required/></p>
+    <p><input type="submit" value="Cadastrar" /></p>
+</form>
+
+<!-- Formulário para Remover Atuador -->
+<h3>Remover Atuador</h3>
+<form action="/del_actuators" method="post">
+    <p>Nome:</p>
+    <p><input type="text" name="key" placeholder="Key" required/></p>
+    <p>Valor:</p>
+    <p><input type="text" name="value" placeholder="Value" required/></p>
+    <p><input type="submit" value="Remover" /></p>
+</form>
+
+<p>Voltar para <a href="/home">página inicial</a>!</p>
+{% endblock %}

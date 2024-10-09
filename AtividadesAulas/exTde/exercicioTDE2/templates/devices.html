@@ -1,0 +1,63 @@
+<!-- devices.html -->
+{% extends "base.html" %}
+
+{% block title %} Devices {% endblock %}
+{% block header_title %} Controle de Dispositivos {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="column">
+            <h3>Sensores</h3>
+            <ul>
+                {% for key, value in sensors.items() %}
+                    <li>{{ key }} : {{ value }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Cadastrar Sensor</h3>
+            <form action="/add_sensor" method="post">
+                <p>Nome:</p>
+                <input type="text" name="key" placeholder="Nome do Sensor" required/>
+                <p>Valor:</p>
+                <input type="text" name="value" placeholder="Valor" required/>
+                <input type="submit" value="Cadastrar"/>
+            </form>
+
+            <h3>Remover Sensor</h3>
+            <form action="/del_sensor" method="post">
+                <p>Nome:</p>
+                <input type="text" name="key" placeholder="Nome do Sensor" required/>
+                <p>Valor:</p>
+                <input type="text" name="value" placeholder="Valor" required/>
+                <input type="submit" value="Remover"/>
+            </form>
+        </div>
+
+        <div class="column">
+            <h3>Atuadores</h3>
+            <ul>
+                {% for key, value in actuators.items() %}
+                    <li>{{ key }} : {{ value }}</li>
+                {% endfor %}
+            </ul>
+
+            <h3>Cadastrar Atuador</h3>
+            <form action="/add_actuators" method="post">
+                <p>Nome:</p>
+                <input type="text" name="key" placeholder="Nome do Atuador" required/>
+                <p>Valor:</p>
+                <input type="text" name="value" placeholder="Valor" required/>
+                <input type="submit" value="Cadastrar"/>
+            </form>
+
+            <h3>Remover Atuador</h3>
+            <form action="/del_actuators" method="post">
+                <p>Nome:</p>
+                <input type="text" name="key" placeholder="Nome do Atuador" required/>
+                <p>Valor:</p>
+                <input type="text" name="value" placeholder="Valor" required/>
+                <input type="submit" value="Remover"/>
+            </form>
+        </div>
+    </div>
+    <p><a href="/home">Voltar para a página inicial</a></p>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} Tempo Real {% endblock %}
+
+{% block header_title %}Monitoramento de Sensores{% endblock %}
+
+{% block content %}
+    <div id="content" class="container mt-5">
+        <ul>
+            {% for key, value in values.items() %}
+                {% if key == 'temperature' %}
+                    <li>
+                        <a class="navbar-brand" href="#">
+                            <img src="static/img/imagem3.png" width="60" height="60" alt="">
+                        </a>
+                        <span>{{ value }} ºC</span>
+                    </li>
+                {% else %}
+                    <li>
+                        <a class="navbar-brand" href="#">
+                            <img src="static/img/imagem4.png" width="60" height="60" alt="">
+                        </a>
+                        <span>{{ value }} %</span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

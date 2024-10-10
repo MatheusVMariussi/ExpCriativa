@@ -1,0 +1,19 @@
+<!--tr.html-->
+{% extends "base.html" %}
+
+{% block title %}Tempo Real{% endblock %}
+
+{% block header_title %}Monitoramento de Sensores{% endblock %}
+
+{% block content %}
+<div id="content" class="container mt-5">
+    <ul class="sensor-list">
+        {% for key, value in values.items() %}
+        <li class="sensor-item">
+            <img src="static/img/{% if key == 'temperature' %}imagem3.png{% else %}imagem4.png{% endif %}" width="60" height="60" alt="{{ key }} icon" class="sensor-icon">
+            <span class="sensor-value">{{ value }}{% if key == 'temperature' %}ºC{% else %}%{% endif %}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

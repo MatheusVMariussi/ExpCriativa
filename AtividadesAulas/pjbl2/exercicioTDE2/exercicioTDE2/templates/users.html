@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Users{% endblock %}
+
+{% block header_title %}Gestão de Usuários{% endblock %}
+
+{% block content %}
+
+    {% if session.user == 'admin' %}
+
+    <h3>Usuários Cadastrados</h3>
+    
+    <ul>
+        {% for key, value in users.items() %}
+            <li>{{ key }}</li>
+        {% endfor %}
+    </ul>
+
+    <div class="row">
+        <div class="column">
+            <h3>Cadastrar Usuário</h3>
+            <form action="/add_user" method="post">
+                <p>Usuário:</p>
+                <input type="text" name="user" placeholder="Nome de usuário" required />
+                <p>Senha:</p>
+                <input type="password" name="password" placeholder="Senha" required />
+                <input type="submit" value="Cadastrar" />
+            </form>
+        </div>
+
+        <div class="column">
+            <h3>Remover Usuário</h3>
+            <form action="/del_user" method="post">
+                <p>Usuário:</p>
+                <input type="text" name="user" placeholder="Nome de usuário" required />
+                <p>Senha:</p>
+                <input type="password" name="password" placeholder="Senha" required />
+                <input type="submit" value="Remover" />
+            </form>
+        </div>
+    </div>
+    {% endif %}
+    
+{% endblock %}

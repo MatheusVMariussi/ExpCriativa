@@ -1,0 +1,262 @@
+/* === Estilos Globais === */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* === Cabeçalho === */
+header {
+    position: relative;
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    height: 100px; /* Ajuste conforme necessário */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .logo {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 100px;
+    height: auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Estilos para nome do usuário e botão de logoff */
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinha o conteúdo à direita */
+    gap: 10px; /* Espaço entre o nome e o botão de logoff */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.user-info span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.logoff-button {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.logoff-button:hover {
+    background-color: #2f48d3;
+    color: white;
+}
+
+/* === Pagina Publish === */
+
+.switch__container {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 30px;
+}
+
+.switch {
+    opacity: 0; /* Torna o checkbox invisível */
+    position: absolute;
+}
+
+.switch + label {
+    background: #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    position: relative;
+    transition: background 0.3s;
+}
+
+.switch + label:before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.switch:checked + label {
+    background: #007bff; /* Cor do switch quando ativado */
+}
+
+.switch:checked + label:before {
+    transform: translateX(30px); /* Move o botão para a direita quando ativado */
+}
+
+/* === Navegação === */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #007bff;
+    padding: 20px 15px;
+    border-radius: 10px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    background-color: #0056b3;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #003f8f;
+}
+
+/* === Formulários === */
+form input[type="text"], form input[type="password"], form input[type="submit"] {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+form input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Botões lado a lado */
+.form-inline input[type="submit"] {
+    display: inline-block;
+    margin-right: 10px;
+    width: auto;
+}
+
+/* Botões um embaixo do outro */
+.form-block input[type="submit"] {
+    display: block;
+    width: 100%;
+}
+
+/* === Estilos para Monitores e Sensores === */
+/* Layout de duas colunas */
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.column ul {
+    padding: 0;
+    list-style: none;
+}
+
+.column form {
+    margin-bottom: 20px;
+}
+
+.column h3 {
+    margin-top: 20px;
+}
+
+#content ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#content ul li {
+    display: flex;
+    align-items: center; /* Alinha a imagem e o texto verticalmente */
+    justify-content: space-between;
+    margin: 10px;
+    background-color: #fff;
+    padding: 10px 20px; /* Ajusta o padding para equilibrar o espaço interno */
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    max-width: 150px; /* Mantém a largura máxima da caixa */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#content ul li img {
+    margin-right: 15px; /* Adiciona espaço entre a imagem e o texto */
+    max-width: 75px; /* Reduz o tamanho da imagem, se necessário */
+}
+
+#content ul li span {
+    display: inline-block;
+    vertical-align: middle; /* Garante que o texto esteja alinhado verticalmente ao centro */
+    font-size: 1rem; /* Ajusta o tamanho da fonte do texto */
+}
+
+/* Formulário de login */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff; /* Fundo branco para o formulário */
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar o formulário */
+    max-width: 300px; /* Largura máxima do formulário */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* === Rodapé === */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

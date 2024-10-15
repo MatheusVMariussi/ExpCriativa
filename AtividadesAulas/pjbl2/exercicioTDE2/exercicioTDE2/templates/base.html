@@ -1,0 +1,34 @@
+<!--base.html-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Menu Principal{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Logo que redireciona para home.html -->
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo">
+            </a>
+            <!-- Título dinâmico -->
+            <h1>{% block header_title %}Menu Principal{% endblock %}</h1>
+
+            <!-- Nome do usuário e Logoff à direita -->
+            <div class="user-info">
+                {% if session.get('user') %}
+                    <span>{{ session.get('user') }},</span>  <!-- Exibe o nome do usuário conectado -->
+                    <a href="{{ url_for('logoff') }}" class="logoff-button">Logout</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+/* CONTAINER DE LOGIN */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.login-box {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+/* MENSAGENS DE ALERTA */
+.alert {
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    text-align: center;
+}
+
+/* FORMULÁRIO */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 1px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #00509e;
+    box-shadow: 0 0 5px rgba(0, 80, 158, 0.2);
+    background-color: #ffffff;
+    outline: none;
+}
+
+/* BOTÃO DE ENVIO */
+button[type="submit"] {
+    background-color: #00509e;
+    color: white;
+    padding: 12px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #003f7f;
+    transform: scale(1.02);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    button[type="submit"] {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}

@@ -2,10 +2,12 @@
 from flask import Blueprint, request, render_template
 from models.iot.read import Read
 from models.iot.sensors import Sensor
+from controllers.users_controller import login_required
 
 read = Blueprint("read",__name__, template_folder="views")
 
 @read.route("/history_read")
+@login_required
 def history_read():
     sensors = Sensor.get_sensors()
     read = {}

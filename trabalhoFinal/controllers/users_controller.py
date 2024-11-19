@@ -11,7 +11,7 @@ def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if 'user' not in session:
-            return redirect(url_for('index'))
+            return redirect(url_for('logoff'))
         return f(*args, **kwargs)
     return decorated_function
 
@@ -114,6 +114,7 @@ def validated_user():
         else:
             # Em caso de credenciais inválidas, redireciona para login com mensagem de erro
             return render_template('login.html', error="Credenciais inválidas")
-    
-    # Se não for POST, redireciona para página de login
-    return redirect(url_for('index'))
+
+    # Se for GET, redireciona para a página de login, exibindo uma mensagem se necessário
+    error = request.args.get('error', None)
+    return render_template('login.html', error=error)

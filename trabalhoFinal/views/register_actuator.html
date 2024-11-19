@@ -1,5 +1,8 @@
 <!--register_actuator.html -->
 {% extends"base.html" %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+{% endblock %}
 {% block content%} 
 <div class="vertical-center">
     <div class="container">

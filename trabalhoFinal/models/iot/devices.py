@@ -1,3 +1,4 @@
+# devices.py
 from models.db import db
 
 class Device(db.Model):

@@ -1,5 +1,8 @@
 <!--sensors.html -->
 {% extends"base.html" %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+{% endblock %}
 {% block content%}
 <div class="vertical-center">
 <div class="container view">
@@ -38,8 +41,6 @@
       </table>
       <form  action= "http://localhost:8080/register_sensor">
         <p><input type= "submit" value= "Adicionar Sensor"/></p>
-        <form  action= "http://localhost:8080/home">
-          <p><input type= "submit" value= "Retornar"/></p>
       </form>
     {% else %}
       <p>Ainda não sensores registrados!<p>

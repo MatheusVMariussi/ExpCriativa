@@ -1,18 +1,28 @@
-<!-- home.html -->
 {% extends "base.html" %}
+
 {% block content %}
-<div class="vertical-center">
-    <div class="container">
-        {% with messages = get_flashed_messages()%}
-            {% if messages %}
-                {{messages[0]}} 
-            {% endif%}
-        {% endwith%}
-        <li><a href="/users">Listar Usuários</a></li>
-        <li><a href="/sensors">Listar Sensores</a></li>
-        <li><a href="/actuators">Listar Atuadores</a></li>
+<div class="container mt-4 sensor-page">
+    <h2>Dados em Tempo Real</h2>
+    <div class="row justify-content-center align-items-center flex-wrap gap-3">
+        {% for sensor in sensors %}
+        <div class="col-auto">
+            <div class="card">
+                <div class="card-body text-center">
+                    {% if sensor.name == 'Temperatura' %}
+                        <img src="static/img/imagem3.png" width="60" height="60" alt="Temperatura">
+                    {% elif sensor.name == 'Umidade' %}
+                        <img src="static/img/imagem4.png" width="60" height="60" alt="Umidade">
+                    {% elif sensor.name == 'Amonia' %}
+                        <img src="static/img/Amonia.png" width="60" height="60" alt="Amonia">
+                    {% elif sensor.name == 'Co2' %}
+                        <img src="static/img/co2.png" width="60" height="60" alt="Co2">
+                    {% endif %}
+                    <h5 class="card-title">{{ sensor.name }}</h5>
+                    <p class="card-text display-4">{{ sensor.value }} {{ sensor.unit }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
-
-

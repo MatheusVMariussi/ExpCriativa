@@ -1,6 +1,36 @@
 <!-- login.html -->
-{% extends "base_login.html" %}
+{% extends "base.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
 {% block content %}
-<div class="vertical-center">
+<div class="login-container">
+    <div class="login-box">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form action="http://localhost:8080/validated_user" method="post">
+            <div class="form-group">
+                <label for="email">Usuário:</label>
+                <input type="text" id="email" name="email" class="form-control" placeholder="Login" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="*******" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+        </form>
+    </div>
 </div>
 {% endblock %}

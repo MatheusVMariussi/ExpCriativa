@@ -2,10 +2,12 @@
 from flask import Blueprint, request, render_template
 from models.iot.write import Write
 from models.iot.actuators import Actuator
+from controllers.users_controller import login_required
 
 write = Blueprint("write",__name__, template_folder="views")
 
 @write.route("/history_write")
+@login_required
 def history_write():
     actuators = Actuator.get_actuators()
     write = {}

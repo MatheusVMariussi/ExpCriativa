@@ -1,0 +1,115 @@
+/* Container principal */
+.container {
+    max-width: 800px; /* Reduz largura */
+    margin: 20px auto; /* Centraliza */
+    padding: 20px;
+    background-color: #ffffff; /* Fundo branco */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Estilo do título */
+.container h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #00509e;
+}
+
+/* Layout para atuadores */
+#actuator-controls {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    gap: 15px; /* Espaçamento entre os atuadores */
+    justify-content: center; /* Centraliza os itens */
+}
+
+/* Cada atuador */
+.actuator-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 250px; /* Define largura fixa */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.actuator-container:hover {
+    transform: scale(1.02); /* Leve aumento no hover */
+}
+
+/* Nome e status do atuador */
+.actuator-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+    color: #333;
+    flex: 1;
+    text-align: left;
+}
+
+.status-message {
+    font-size: 12px;
+    color: #777;
+    margin-left: 10px;
+}
+
+/* Estilo do botão switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+    margin-right: 10px;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%; /* Ajusta a largura em telas menores */
+    }
+
+    .actuator-container {
+        width: 100%; /* Ocupa toda a largura */
+    }
+
+    #actuator-controls {
+        gap: 10px; /* Reduz o espaçamento */
+    }
+}
